@@ -8,7 +8,7 @@ function getBinListDetails(request, response) {
         let lookup = require('binlookup')();
  
         lookup(digits,
-            function( err, data ){
+            ( err, data ) => {
                 if(err){
                     response.status(500).send({message: err}) 
                 }
@@ -16,8 +16,8 @@ function getBinListDetails(request, response) {
             response.status(200).send(data); 
         });
 
-        lookup('45717360').then(
-            data => console.log(data));
+        lookup(digits);
+        
         } catch (e) {
         response.status(500).send({message: e})
         }
